@@ -77,11 +77,13 @@ const GET_RECENT_NFTS = `
 // ====================
 
 async function fetchNFTS(): Promise<NFTQueryResponse> {
+
   const response = await fetch("http://localhost:3001/graphql", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
     },
+
     body: JSON.stringify({ query: GET_RECENT_NFTS }),
   })
 
@@ -174,12 +176,15 @@ export default function RecentlyListedNFTs() {
       ) : (
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-6 gap-4">
           {NftDataList.map((nft) => (
+            <Link href={`/buy-nft/${nft.contractAddress}/${nft.tokenId}`}
+            key={`${nft.contractAddress}-${nft.tokenId}`}>
             <NFTBox
               key={`${nft.contractAddress}-${nft.tokenId}`}
               tokenId={nft.tokenId}
               contractAddress={nft.contractAddress}
               price={nft.price}
             />
+            </Link>
           ))}
         </div>
       )}
