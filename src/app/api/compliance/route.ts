@@ -28,8 +28,6 @@ export async function POST(request: Request) {
 
         // Get API key from environment variables
         const apiKey = process.env.CIRCLE_API_KEY;
-        console.log("ENABLE_COMPLIANCE_CHECK =", process.env.ENABLE_COMPLIANCE_CHECK);
- 
 
         if (!apiKey) {
             console.error("Missing CIRCLE_API_KEY environment variable");

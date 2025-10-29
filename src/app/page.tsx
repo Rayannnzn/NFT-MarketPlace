@@ -50,7 +50,7 @@ export default function Home() {
                     <RecentlyListedNFTs />
                 </div>) : (
 
-                <div className="flex items-center justify-center p-4 md:p-6 xl:p-8">
+                <div >
                     Your address is not compliant to access this marketplace.
                 </div>
                 )
